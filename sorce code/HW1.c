@@ -159,9 +159,9 @@ TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
     while (1)
     {
         if(flag_enbl == 1)
-                PORTA.3 = 1;
-            else
-                PORTA.3 = 0;
+            PORTA.3 = 1;
+        else
+            PORTA.3 = 0;
         if(flag_enbl ==0 && enable == 1 )
         {
             uint8_t temp = PINB;
@@ -172,7 +172,7 @@ TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
                 case 1: floor = 1; break;
                 case 2: floor = 2; break;
                 case 4: floor = 3; break;
-                default: return;
+                default: floor = 0;
             }
             if(floor == 1)
                 PORTA.0 = 1;

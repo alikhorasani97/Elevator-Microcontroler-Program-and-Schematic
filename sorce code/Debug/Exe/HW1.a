@@ -276,13 +276,13 @@
 ;PCODE: $00000064 VOL: 0
 ;PCODE: $00000065 VOL: 0
 ;PCODE: $00000066 VOL: 0
-; 0000 00A2                 PORTA.3 = 1;
+; 0000 00A2             PORTA.3 = 1;
 ;PCODE: $00000067 VOL: 0
 ;PCODE: $00000068 VOL: 0
-; 0000 00A3             else
+; 0000 00A3         else
 ;PCODE: $00000069 VOL: 0
 ;PCODE: $0000006A VOL: 0
-; 0000 00A4                 PORTA.3 = 0;
+; 0000 00A4             PORTA.3 = 0;
 ;PCODE: $0000006B VOL: 0
 ;PCODE: $0000006C VOL: 0
 ; 0000 00A5         if(flag_enbl ==0 && enable == 1 )
@@ -333,48 +333,46 @@
 ;PCODE: $0000008F VOL: 0
 ;PCODE: $00000090 VOL: 0
 ;PCODE: $00000091 VOL: 0
-; 0000 00AF                 default: return;
+; 0000 00AF                 default: floor = 0;
 ;PCODE: $00000092 VOL: 0
 ;PCODE: $00000093 VOL: 0
-;PCODE: $00000094 VOL: 0
-;PCODE: $00000095 VOL: 0
 ; 0000 00B0             }
-;PCODE: $00000096 VOL: 0
+;PCODE: $00000094 VOL: 0
 ; 0000 00B1             if(floor == 1)
+;PCODE: $00000095 VOL: 0
+;PCODE: $00000096 VOL: 0
 ;PCODE: $00000097 VOL: 0
+; 0000 00B2                 PORTA.0 = 1;
 ;PCODE: $00000098 VOL: 0
 ;PCODE: $00000099 VOL: 0
-; 0000 00B2                 PORTA.0 = 1;
+; 0000 00B3             else
 ;PCODE: $0000009A VOL: 0
 ;PCODE: $0000009B VOL: 0
-; 0000 00B3             else
+; 0000 00B4                 PORTA.0 = 0;
 ;PCODE: $0000009C VOL: 0
 ;PCODE: $0000009D VOL: 0
-; 0000 00B4                 PORTA.0 = 0;
-;PCODE: $0000009E VOL: 0
-;PCODE: $0000009F VOL: 0
 ; 0000 00B5 
 ; 0000 00B6 
 ; 0000 00B7         }
+;PCODE: $0000009E VOL: 0
+;PCODE: $0000009F VOL: 0
+; 0000 00B8         else if(enable != 1)
 ;PCODE: $000000A0 VOL: 0
 ;PCODE: $000000A1 VOL: 0
-; 0000 00B8         else if(enable != 1)
 ;PCODE: $000000A2 VOL: 0
 ;PCODE: $000000A3 VOL: 0
 ;PCODE: $000000A4 VOL: 0
-;PCODE: $000000A5 VOL: 0
-;PCODE: $000000A6 VOL: 0
 ; 0000 00B9             flag_enbl = 0;
-;PCODE: $000000A7 VOL: 0
+;PCODE: $000000A5 VOL: 0
 ; 0000 00BA 
 ; 0000 00BB 
 ; 0000 00BC 
 ; 0000 00BD     }
+;PCODE: $000000A6 VOL: 0
+;PCODE: $000000A7 VOL: 0
 ;PCODE: $000000A8 VOL: 0
 ;PCODE: $000000A9 VOL: 0
+; 0000 00BE }
 ;PCODE: $000000AA VOL: 0
 ;PCODE: $000000AB VOL: 0
-; 0000 00BE }
 ;PCODE: $000000AC VOL: 0
-;PCODE: $000000AD VOL: 0
-;PCODE: $000000AE VOL: 0

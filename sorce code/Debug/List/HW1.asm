@@ -1443,12 +1443,12 @@ _0x3:
 	CP   R30,R6
 	CPC  R31,R7
 	BRNE _0x6
-; 0000 00A2                 PORTA.3 = 1;
+; 0000 00A2             PORTA.3 = 1;
 	SBI  0x1B,3
-; 0000 00A3             else
+; 0000 00A3         else
 	RJMP _0x9
 _0x6:
-; 0000 00A4                 PORTA.3 = 0;
+; 0000 00A4             PORTA.3 = 0;
 	CBI  0x1B,3
 ; 0000 00A5         if(flag_enbl ==0 && enable == 1 )
 _0x9:
@@ -1507,11 +1507,10 @@ _0x13:
 	LDI  R31,HIGH(3)
 	MOVW R4,R30
 	RJMP _0x11
-; 0000 00AF                 default: return;
+; 0000 00AF                 default: floor = 0;
 _0x15:
-	ADIW R28,1
-_0x16:
-	RJMP _0x16
+	CLR  R4
+	CLR  R5
 ; 0000 00B0             }
 _0x11:
 ; 0000 00B1             if(floor == 1)
@@ -1519,24 +1518,24 @@ _0x11:
 	LDI  R31,HIGH(1)
 	CP   R30,R4
 	CPC  R31,R5
-	BRNE _0x17
+	BRNE _0x16
 ; 0000 00B2                 PORTA.0 = 1;
 	SBI  0x1B,0
 ; 0000 00B3             else
-	RJMP _0x1A
-_0x17:
+	RJMP _0x19
+_0x16:
 ; 0000 00B4                 PORTA.0 = 0;
 	CBI  0x1B,0
 ; 0000 00B5 
 ; 0000 00B6 
 ; 0000 00B7         }
-_0x1A:
+_0x19:
 	ADIW R28,1
 ; 0000 00B8         else if(enable != 1)
-	RJMP _0x1D
+	RJMP _0x1C
 _0xC:
 	SBIC 0x16,3
-	RJMP _0x1E
+	RJMP _0x1D
 ; 0000 00B9             flag_enbl = 0;
 	CLR  R6
 	CLR  R7
@@ -1544,12 +1543,12 @@ _0xC:
 ; 0000 00BB 
 ; 0000 00BC 
 ; 0000 00BD     }
-_0x1E:
 _0x1D:
+_0x1C:
 	RJMP _0x3
 ; 0000 00BE }
-_0x1F:
-	RJMP _0x1F
+_0x1E:
+	RJMP _0x1E
 ; .FEND
 
 	.CSEG

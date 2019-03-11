@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\List\HW1.asm Mon Mar 11 21:08:30 2019
+AVRASM ver. 2.1.30  D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\List\HW1.asm Mon Mar 11 22:33:18 2019
 
 D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\List\HW1.asm(1088): warning: Register r4 already defined by the .DEF directive
 D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\List\HW1.asm(1089): warning: Register r5 already defined by the .DEF directive
@@ -1451,12 +1451,12 @@ D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\
 00008f 15e6      	CP   R30,R6
 000090 05f7      	CPC  R31,R7
 000091 f411      	BRNE _0x6
-                 ; 0000 00A2                 PORTA.3 = 1;
+                 ; 0000 00A2             PORTA.3 = 1;
 000092 9adb      	SBI  0x1B,3
-                 ; 0000 00A3             else
+                 ; 0000 00A3         else
 000093 c001      	RJMP _0x9
                  _0x6:
-                 ; 0000 00A4                 PORTA.3 = 0;
+                 ; 0000 00A4             PORTA.3 = 0;
 000094 98db      	CBI  0x1B,3
                  ; 0000 00A5         if(flag_enbl ==0 && enable == 1 )
                  _0x9:
@@ -1515,11 +1515,10 @@ D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\
 0000bb e0f0      	LDI  R31,HIGH(3)
 0000bc 012f      	MOVW R4,R30
 0000bd c002      	RJMP _0x11
-                 ; 0000 00AF                 default: return;
+                 ; 0000 00AF                 default: floor = 0;
                  _0x15:
-0000be 9621      	ADIW R28,1
-                 _0x16:
-0000bf cfff      	RJMP _0x16
+0000be 2444      	CLR  R4
+0000bf 2455      	CLR  R5
                  ; 0000 00B0             }
                  _0x11:
                  ; 0000 00B1             if(floor == 1)
@@ -1527,24 +1526,24 @@ D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\
 0000c1 e0f0      	LDI  R31,HIGH(1)
 0000c2 15e4      	CP   R30,R4
 0000c3 05f5      	CPC  R31,R5
-0000c4 f411      	BRNE _0x17
+0000c4 f411      	BRNE _0x16
                  ; 0000 00B2                 PORTA.0 = 1;
 0000c5 9ad8      	SBI  0x1B,0
                  ; 0000 00B3             else
-0000c6 c001      	RJMP _0x1A
-                 _0x17:
+0000c6 c001      	RJMP _0x19
+                 _0x16:
                  ; 0000 00B4                 PORTA.0 = 0;
 0000c7 98d8      	CBI  0x1B,0
                  ; 0000 00B5 
                  ; 0000 00B6 
                  ; 0000 00B7         }
-                 _0x1A:
+                 _0x19:
 0000c8 9621      	ADIW R28,1
                  ; 0000 00B8         else if(enable != 1)
-0000c9 c004      	RJMP _0x1D
+0000c9 c004      	RJMP _0x1C
                  _0xC:
 0000ca 99b3      	SBIC 0x16,3
-0000cb c002      	RJMP _0x1E
+0000cb c002      	RJMP _0x1D
                  ; 0000 00B9             flag_enbl = 0;
 0000cc 2466      	CLR  R6
 0000cd 2477      	CLR  R7
@@ -1552,12 +1551,12 @@ D:\github Project\Elevator-Microcontroler-Program-and-Shematic\sorce code\Debug\
                  ; 0000 00BB 
                  ; 0000 00BC 
                  ; 0000 00BD     }
-                 _0x1E:
                  _0x1D:
+                 _0x1C:
 0000ce cfbe      	RJMP _0x3
                  ; 0000 00BE }
-                 _0x1F:
-0000cf cfff      	RJMP _0x1F
+                 _0x1E:
+0000cf cfff      	RJMP _0x1E
                  ; .FEND
                  
                  	.CSEG
@@ -1582,29 +1581,29 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 ATmega16 register use summary:
-r0 :   7 r1 :   1 r2 :   0 r3 :   0 r4 :   4 r5 :   1 r6 :   4 r7 :   3 
+r0 :   7 r1 :   1 r2 :   0 r3 :   0 r4 :   5 r5 :   2 r6 :   4 r7 :   3 
 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 r13:   0 r14:   0 r15:   0 
 r16:   0 r17:   0 r18:   0 r19:   0 r20:   0 r21:   0 r22:   2 r23:   0 
-r24:   7 r25:   2 r26:   9 r27:   2 r28:   4 r29:   1 r30:  80 r31:  15 
+r24:   7 r25:   2 r26:   9 r27:   2 r28:   3 r29:   1 r30:  80 r31:  15 
 x  :   3 y  :   3 z  :   7 
 Registers used: 18 out of 35 (51.4%)
 
 ATmega16 instruction use summary:
 .lds  :   0 .lds.l:   0 .sts  :   0 .sts.l:   0 adc   :   0 add   :   0 
-adiw  :   2 and   :   0 andi  :   1 asr   :   0 bclr  :   0 bld   :   0 
+adiw  :   1 and   :   0 andi  :   1 asr   :   0 bclr  :   0 bld   :   0 
 brbc  :   0 brbs  :   0 brcc  :   0 brcs  :   0 break :   0 breq  :   1 
 brge  :   0 brhc  :   0 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 
 brlt  :   0 brmi  :   0 brne  :   9 brpl  :   0 brsh  :   0 brtc  :   0 
 brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 bst   :   0 call  :   0 
 cbi   :   2 cbr   :   0 clc   :   0 clh   :   0 cli   :   1 cln   :   0 
-clr   :   5 cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 
+clr   :   7 cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 
 cp    :   3 cpc   :   6 cpi   :   3 cpse  :   0 dec   :   1 des   :   0 
 eor   :   0 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
 in    :   2 inc   :   0 jmp   :  22 ld    :   1 ldd   :   0 ldi   :  36 
 lds   :   0 lpm   :   7 lsl   :   0 lsr   :   0 mov   :   0 movw  :   7 
 mul   :   0 muls  :   0 mulsu :   0 neg   :   0 nop   :   0 or    :   0 
 ori   :   1 out   :  42 pop   :   0 push  :   0 rcall :   0 ret   :   0 
-reti  :   2 rjmp  :  13 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 
+reti  :   2 rjmp  :  12 rol   :   0 ror   :   0 sbc   :   0 sbci  :   0 
 sbi   :   2 sbic  :   2 sbis  :   0 sbiw  :   4 sbr   :   0 sbrc  :   0 
 sbrs  :   0 sec   :   0 seh   :   0 sei   :   1 sen   :   0 ser   :   0 
 ses   :   0 set   :   0 sev   :   0 sez   :   0 sleep :   0 spm   :   0 
