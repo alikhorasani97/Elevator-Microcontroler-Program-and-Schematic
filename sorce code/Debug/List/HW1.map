@@ -9,10 +9,12 @@ Variable                                                                        
 Register Allocation
 Variable                                                                          Register  Size
 ------------------------------------------------------------------------------------------------
+floor                                                                             R4,R5        2
+flag_enbl                                                                         R6,R7        2
 
 FLASH Allocation [words]
 Function                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
-ext_int0_isr                                                                      0x00054      1
-ext_int1_isr                                                                      0x00055      1
-main                                                                              0x00056     59
+ext_int0_isr                                                                      0x0005C      1
+ext_int1_isr                                                                      0x0005D      1
+main                                                                              0x0005E    114

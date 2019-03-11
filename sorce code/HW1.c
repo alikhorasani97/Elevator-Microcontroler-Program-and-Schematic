@@ -20,13 +20,15 @@ Memory model            : Small
 External RAM size       : 0
 Data Stack size         : 256
 *******************************************************/
-
+#include <stdint.h>
 #include <mega16.h>
 
+
 // Declare your global variables here
+int floor;
+int flag_enbl = 0;
 
-
-#define PINB.3 enable
+#define enable PINB.3 
 // External Interrupt 0 service routine
 interrupt [EXT_INT0] void ext_int0_isr(void)
 {
@@ -154,13 +156,35 @@ TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 // Global enable interrupts
 #asm("sei")
 
-while (1)
-      {
-        int b[6] = {0};
-        int c[3] = {0};
-        int d[6] = {0};     
+    while (1)
+    {
+        if(flag_enbl == 1)
+                PORTA.3 = 1;
+            else
+                PORTA.3 = 0;
+        if(flag_enbl ==0 && enable == 1 )
+        {
+            uint8_t temp = PINB;
+            flag_enbl = 1;
+            temp &= 0x07;
+            switch(temp)
+            {
+                case 1: floor = 1; break;
+                case 2: floor = 2; break;
+                case 4: floor = 3; break;
+                default: return;
+            }
+            if(floor == 1)
+                PORTA.0 = 1;
+            else
+                PORTA.0 = 0;
+            
+                            
+        }
+        else if(enable != 1)
+            flag_enbl = 0;     
         
         
 
-      }
+    }
 }

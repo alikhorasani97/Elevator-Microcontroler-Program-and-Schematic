@@ -1,5 +1,9 @@
-VERSION:3 SOURCE_TIMESTAMP:4E6B5A13
+VERSION:3 SOURCE_TIMESTAMP:4E6BA90E
+NODE:I LEVEL:0 LINE:23 "C:\cvavr\inc\stdint.h"
 NODE:I LEVEL:0 LINE:24 "C:\cvavr\inc\mega16.h"
-NODE:F LEVEL:0 LINE:29 "ext_int0_isr(void)"
-NODE:F LEVEL:0 LINE:36 "ext_int1_isr(void)"
-NODE:F LEVEL:0 LINE:42 "main(void)"
+NODE:V LEVEL:0 LINE:28 "floor -> R4,R5"
+NODE:V LEVEL:0 LINE:29 "flag_enbl -> R6,R7"
+NODE:M LEVEL:0 LINE:31 "enable"
+NODE:F LEVEL:0 LINE:33 "ext_int0_isr(void)"
+NODE:F LEVEL:0 LINE:40 "ext_int1_isr(void)"
+NODE:F LEVEL:0 LINE:46 "main(void)"
